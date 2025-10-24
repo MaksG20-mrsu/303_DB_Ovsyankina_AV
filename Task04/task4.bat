@@ -43,5 +43,5 @@ echo " "
 
 echo "8. С помощью рекурсивного CTE определить, на какие дни недели приходился ваш день рождения в каждом году."
 echo "--------------------------------------------------"
-"$SQLITE" movies_rating.db -box -echo "WITH RECURSIVE years(year) AS (SELECT 2000 UNION ALL SELECT year + 1 FROM years WHERE year < 2023) SELECT year, CASE CAST(strftime('%w', year || '-10-13') AS INTEGER) WHEN 0 THEN 'Воскресенье' WHEN 1 THEN 'Понедельник' WHEN 2 THEN 'Вторник' WHEN 3 THEN 'Среда' WHEN 4 THEN 'Четверг' WHEN 5 THEN 'Пятница' WHEN 6 THEN 'Суббота' END AS день_недели FROM years;"
+"$SQLITE" movies_rating.db -box -echo "WITH RECURSIVE years(year) AS (SELECT 2005 UNION ALL SELECT year + 1 FROM years WHERE year < 2025) SELECT year, CASE CAST(strftime('%w', year || '-10-02') AS INTEGER) WHEN 0 THEN 'Воскресенье' WHEN 1 THEN 'Понедельник' WHEN 2 THEN 'Вторник' WHEN 3 THEN 'Среда' WHEN 4 THEN 'Четверг' WHEN 5 THEN 'Пятница' WHEN 6 THEN 'Суббота' END AS день_недели FROM years;"
 echo " "
